@@ -18,4 +18,13 @@ feature "User adds a new peep" do
 		end
 	end
 
+	#postponed until sessions are implemented
+	xscenario "but does not add any text" do 
+		expect(Peep.count).to eq(0)
+		visit '/'
+		add_peep("")
+		expect(Peep.count).to eq(0)
+		expect(page).to have_content("Surely your mind isn't completely empty?")
+	end
+
 end

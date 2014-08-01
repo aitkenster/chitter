@@ -23,7 +23,7 @@ post '/peeps' do
 								:timestamp => timestamp)
 		redirect to('/')
 	else
-		flash[:notice] = "Surely your mind isn't completely empty?"
+		flash[:errors] = "Surely your mind isn't completely empty?"
 	end
 end
 
@@ -42,7 +42,7 @@ post '/users' do
 		session[:user_id] = @user.id
 		redirect to('/')
 	else
-		flash[:notice] = "Sorry, your passwords don't match. Please try again."
+		flash.now[:errors] = @user.errors.full_messages
 		erb :"users/new"
 	end
 end 

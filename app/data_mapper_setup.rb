@@ -6,5 +6,3 @@ require_relative 'peep'
 require_relative 'user'
 
 DataMapper.finalize
-
-DataMapper.auto_upgrade!

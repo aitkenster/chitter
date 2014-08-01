@@ -1,0 +1,12 @@
+<ul>
+	<% @peeps.each do |peep| %>
+		<li><%=peep.peep_text%></li>
+	<% end %>
+</ul>
+
+<div id="new-peep">
+	<form action="/peeps" method="post">
+		What's on your mind?<input type="text" name="peep_text">
+		<input type="submit" value="Send a Peep!">
+	</form>
+</div>

@@ -18,8 +18,7 @@ feature "User adds a new peep" do
 		end
 	end
 
-	#postponed until sessions are implemented
-	xscenario "but does not add any text" do 
+	scenario "but does not add any text" do 
 		expect(Peep.count).to eq(0)
 		visit '/'
 		add_peep("")

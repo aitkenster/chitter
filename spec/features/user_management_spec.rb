@@ -27,6 +27,8 @@ feature "User signs up" do
 
 	scenario "with a password that doesn't match" do 
 		lambda {sign_up("Nicola", "na@gmail.com", "aitkenster", "awesome", "fail")}.should change(User, :count).by(0)
+		expect(current_path).to eq('/users')
+		expect(page).to have_content("Sorry, your passwords don't match. Please try again.")
 	end
 
 end

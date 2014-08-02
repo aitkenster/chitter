@@ -1,4 +1,7 @@
 require 'spec_helper'
+require_relative 'helpers/session'
+
+include SessionHelpers
 
 feature "User signs up" do 
 
@@ -35,6 +38,57 @@ feature "User signs up" do
 		expect{ sign_up }.to change(User, :count).by(1)
 		expect{ sign_up("Nicola", "na@gmail.com", "groovy_chick", "awesome", "awesome") }.to change(User, :count).by(0)
 		expect(page).to have_content("This email is already taken")
+	end
+
+	scenario "with a username that is already registered" do 
+		expect{ sign_up }.to change(User, :count).by(1)
+		expect{ sign_up("Nicola", "na@hotmail.com", "aitkenster", "awesome", "awesome") }.to change(User, :count).by(0)
+		expect(page).to have_content("This username is already taken")
+	end
+
+end
+
+feature "user signs in" do 
+
+	before(:each) do 
+		User.create(name: 									"Nicola",
+								email: 									"na@gmail.com",
+								handle: 								"aitkenster",
+								password: 							"awesome",
+								password_confirmation: 	"awesome" )
+	end
+
+	scenario "with correct credentials" do 
+		visit('/')
+		expect(page).not_to have_content("Welcome back to Chitter Nicola")
+		sign_in("aitkenster", "awesome")
+		expect(page).to have_content("Welcome back to Chitter Nicola")
+	end
+
+	scenario "with incorrect credentials" do 
+		visit('/')
+		expect(page).not_to have_content("Welcome back to Chitter Nicola")
+		sign_in("aitkenster", "fail")
+		expect(page).to have_content("That handle or password is incorrect")
+	end
+
+end
+
+feature "user signs out" do 
+
+	before(:each) do 
+	User.create(name: 									"Nicola",
+							email: 									"na@gmail.com",
+							handle: 								"aitkenster",
+							password: 							"awesome",
+							password_confirmation: 	"awesome" )
+	end
+
+	scenario 'while being signed in' do 
+		sign_in('aitkenster', 'awesome')
+		click_button "Sign Out"
+		expect(page).to have_content("Goodbye!")
+		expect(page).not_to have_content("Welcome back to Chitter Nicola")
 	end
 
 end

@@ -11,7 +11,7 @@ class User
 	property :id, 							Serial
 	property :name,							String
 	property :email,						String, unique: true, message: "This email is already taken" 
-	property :handle,						String
+	property :handle,						String, unique: true, message: "This username is already taken"
 	property :password_digest,	Text
 
 	def password=(password)
@@ -19,5 +19,13 @@ class User
 		self.password_digest = BCrypt::Password.create(password)
 	end
 
+	def self.authenticate(handle, password)
+		user = first(handle: handle)
+		if user && BCrypt::Password.new(user.password_digest) == password
+			user 
+		else
+			nil
+		end
+	end
 
 end

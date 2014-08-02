@@ -7,6 +7,9 @@
 
 	<% if current_user %>
 		Welcome back to Chitter <%= current_user.name %>
+		<form method="post" action="/sessions/sign_out">
+			<input type="hidden" name="_method" value="delete">
+			<input type="submit" value="Sign Out">
 	<% end %>
 
 	<% if flash[:errors] && !flash[:errors].empty? %>
@@ -16,6 +19,12 @@
 				<li><%= error %></li>
 			<% end %>
 		</ul>
+	<% end %>
+
+	<%if flash[:notice] %>
+		<div id="notice">
+			<%=flash[:notice] %>
+		</div>
 	<% end %>
 
 	<%= yield %>

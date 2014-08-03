@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/reset.ccss">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/application.css">
 </head>
 <body>
-
+<header>
+	<div id="logo"><h1>Chitter</h1></div>
+	<div id="user-links">
 	<% if current_user %>
+		<span id="welcome-message">
 		Welcome back to Chitter <%= current_user.name %>
+		</span>
 		<form method="post" action="/sessions/sign_out">
 			<input type="hidden" name="_method" value="delete">
-			<input type="submit" value="Sign Out">
+			<input type="submit" value="Sign Out" class="button">
 			</form>
 	<% else %>
 		<form  action="/sessions/new">
-			<input type="submit" value="Sign In">
+			<input type="submit" value="Sign Me In" class="button">
 		</form>
 		<form  action="/users/new">
-			<input type="submit" value="Sign Up">
+			<input type="submit" value="Create Account" class="button">
 		</form>
 	<% end %>
+	</div>
+</header>
 
 	<% if flash[:errors] && !flash[:errors].empty? %>
 		<ul id="errors">

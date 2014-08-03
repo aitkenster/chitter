@@ -13,21 +13,22 @@ feature "User browses the list of links"  do
 								password: 							"awesome",
 								password_confirmation: 	"awesome" )
 
-		# sign_in("aitkenster", "awesome")
 		Peep.create(peep_text: "This is a test peep",
 								timestamp: 	Time.now,
-								user_id: 		User.first.id)
-
-		# click_button "Sign Out"
-	
+								user_id: 		User.first.id)	
 	end
 
 	scenario "When opening the home page" do 
 		visit '/'
-		expect(page).to have_content("This is a test peep")
+		expect(page).to have_content("aitkenster : This is a test peep")
 	end
 
-	xscenario 'in chronological order' do 
-
+	scenario 'by most recent posted' do 
+		Peep.create(peep_text: "This is a second test peep",
+								timestamp: 	Time.now + 3600,
+								user_id: 		User.first.id)
+		visit '/'
+		expect(page).to have_content("This is a second test peep")
+		page.should have_selector("ul#peeps li:nth-child(1)", text: "This is a second test peep")
 	end
 end

@@ -1,5 +1,5 @@
-<ul>
-	<% @peeps.each do |peep| %>
+<ul id="peeps">
+	<% @peeps.reverse_each do |peep| %>
 		<li><%=peep.user.handle + " : " + peep.peep_text%></li>
 	<% end %>
 </ul>

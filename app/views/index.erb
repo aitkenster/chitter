@@ -1,6 +1,6 @@
 <ul>
 	<% @peeps.each do |peep| %>
-		<li><%=peep.peep_text%></li>
+		<li><%=peep.user.handle + " : " + peep.peep_text%></li>
 	<% end %>
 </ul>
 

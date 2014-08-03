@@ -10,6 +10,7 @@
 		<form method="post" action="/sessions/sign_out">
 			<input type="hidden" name="_method" value="delete">
 			<input type="submit" value="Sign Out">
+			</form>
 	<% end %>
 
 	<% if flash[:errors] && !flash[:errors].empty? %>

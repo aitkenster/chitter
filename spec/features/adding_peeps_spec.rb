@@ -21,6 +21,7 @@ feature "User adds a new peep" do
 		expect(Peep.count).to eq(1)
 		peep = Peep.first
 		expect(peep.peep_text).to eq("This is a test peep")
+		expect(peep.user.handle).to eq("aitkenster")
 	end
 
 	def add_peep(peep_text)

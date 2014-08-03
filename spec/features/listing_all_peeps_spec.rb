@@ -20,7 +20,7 @@ feature "User browses the list of links"  do
 
 	scenario "When opening the home page" do 
 		visit '/'
-		expect(page).to have_content("aitkenster : This is a test peep")
+		expect(page).to have_content("Nicola(aitkenster) : This is a test peep")
 	end
 
 	scenario 'by most recent posted' do 

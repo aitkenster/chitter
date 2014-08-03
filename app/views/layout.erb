@@ -11,10 +11,16 @@
 			<input type="hidden" name="_method" value="delete">
 			<input type="submit" value="Sign Out">
 			</form>
+	<% else %>
+		<form  action="/sessions/new">
+			<input type="submit" value="Sign In">
+		</form>
+		<form  action="/users/new">
+			<input type="submit" value="Sign Up">
+		</form>
 	<% end %>
 
 	<% if flash[:errors] && !flash[:errors].empty? %>
-		Sorry, there were the following problems with the form:
 		<ul id="errors">
 			<% flash[:errors].each do |error| %>
 				<li><%= error %></li>

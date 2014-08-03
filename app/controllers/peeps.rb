@@ -8,7 +8,9 @@ post '/peeps' do
 		redirect to('/')
 	elsif peep_text != ""
 		flash[:errors] = ["Please sign in or register to send a peep."]
+		redirect to('/')
 	else
 		flash[:errors] = ["Surely your mind isn't completely empty?"]
+		redirect to('/')
 	end
 end

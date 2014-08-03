@@ -1,16 +1,23 @@
 body {
-	background-color: #609732
+	background-color: #609732;
+	text-align: center;
+	font-family: 'Average Sans', sans-serif;
 }
 
 header {
 	background-color: #6F256F;
 	display: flex;
+	font-family: 'Fjalla One', sans-serif;
+	border-radius: 13px;
+	margin: 0;
 }
 
 header #user-links {
-	 text-align: right;  
-	 padding: 15px;
-	 flex: 1;
+	font-family: 'Average Sans', sans-serif;
+	text-align: right;  
+	padding: 15px;
+	flex: 1;
+	margin: 10px;
 }
 
 header #logo {
@@ -37,9 +44,10 @@ header #logo {
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
    color: white;
    font-size: 13px;
-   font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+   font-family: 'Average Sans', sans-serif;
    text-decoration: none;
    vertical-align: middle;
+   margin: 10px;
    }
 .button:hover {
    border-top-color: #224c00;
@@ -50,3 +58,25 @@ header #logo {
    border-top-color: #5f9732;
    background: #5f9732;
    }
+
+.peep {
+	background-color: white;
+	box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  margin: 10px inherit;
+  padding: 15px 10px;
+  width: 50%;
+  position: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 13px;
+}
+
+ul {
+	list-style: none;
+}
+
+#new-peep {
+	margin:15px;
+
+}
+

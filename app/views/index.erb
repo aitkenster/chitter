@@ -1,12 +1,12 @@
-<ul id="peeps">
-	<% @peeps.reverse_each do |peep| %>
-		<li><%=peep.user.name + "(" + peep.user.handle + ")" + " : " + peep.peep_text%></li>
-	<% end %>
-</ul>
-
 <div id="new-peep">
 	<form action="/peeps" method="post">
 		What's on your mind?<input type="text" name="peep_text">
 		<input type="submit" value="Send a Peep!" class="button">
 	</form>
 </div>
+
+<ul id="peeps">
+	<% @peeps.reverse_each do |peep| %>
+		<%= partial :display_peep, locals: {peep: peep} %>
+	<% end %>
+</ul>

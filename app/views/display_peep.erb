@@ -1,3 +1,6 @@
 <li class="peep">
 	<%=peep.user.name + "(" + peep.user.handle + ")" + " : " + peep.peep_text%>
+	<form action='/reply' method='get'>
+		<input type="submit" value="Reply" class="button">
+	</form>
 </li>

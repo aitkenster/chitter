@@ -24,13 +24,6 @@ feature "User adds a new peep" do
 		expect(peep.user.handle).to eq("aitkenster")
 	end
 
-	def add_peep(peep_text)
-		within('#new-peep') do 
-			fill_in 'peep_text', with: peep_text
-			click_button 'Send a Peep!'
-		end
-	end
-
 	scenario "but does not add any text" do 
 		expect(Peep.count).to eq(0)
 		visit '/'

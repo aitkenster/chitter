@@ -7,4 +7,11 @@ module SessionHelpers
 		click_button "Sign In"
 	end
 
+	def add_peep(peep_text)
+		within('#new-peep') do 
+			fill_in 'peep_text', with: peep_text
+			click_button 'Send a Peep!'
+		end
+	end
+	
 end

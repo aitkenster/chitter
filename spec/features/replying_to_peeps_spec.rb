@@ -17,10 +17,9 @@ feature "User replies to a peep" do
 		sign_in("aitkenster", "awesome")
 		add_peep("This is a test peep")
 		visit '/'
-		click_button 'Reply'
 		fill_in "reply_text", with: ("This is a reply to the test peep")
 		click_button "Send Reply!"
-		expect(page).to have_content("aitkenster : This is a reply to the test peep")
+		expect(page).to have_content("aitkenster replied: This is a reply to the test peep")
 	end
 
 end

@@ -15,12 +15,11 @@ post '/peeps' do
 	end
 end
 
-get '/reply' do 
-	erb :reply
-end
-
 post '/reply' do 
-
+	@original_peep = Peep.first(id: params[:original_peep])
+	reply_author = current_user.handle
+	@original_peep.update(reply: 			 	params[:reply_text],
+												reply_author: reply_author)
 
 	redirect to ('/')
 end

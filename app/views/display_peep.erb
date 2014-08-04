@@ -1,6 +1,13 @@
 <li class="peep">
 	<%=peep.user.name + "(" + peep.user.handle + ")" + " : " + peep.peep_text%>
-	<form action='/reply' method='get'>
-		<input type="submit" value="Reply" class="button">
-	</form>
+	<div id="reply">
+	<%if peep.reply != nil %>
+		<%=peep.reply_author + " replied: " + peep.reply%>
+	<%end%>
+	</div>
+<form action="/reply" method="post">
+	Type your reply here:<input type="text" name="reply_text">
+	<input type="hidden" name="original_peep" value=<%=peep.id%> >
+	<input type="submit" value="Send Reply!" class="button">
+</form>
 </li>

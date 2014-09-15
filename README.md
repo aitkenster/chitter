@@ -1,32 +1,60 @@
 chitter
 =======
 
-Week 6 Friday Challenge at Makers Academy
+Week 6 Friday Challenge at Makers Academy - Build a twitter clone (chitter)
 
-Challenge:
+Screenshot:
+![](pubic/screenshot.png)
 
-We are going to write an application that will allow the users to post messages to a public stream.
+View the live app here: http://still-inlet-7393.herokuapp.com/
 
-Features:
-In order to use chitter as a maker I want to sign up to the service
-In order to user chitter as a maker I want to log in
-In order to avoid others to use my account as a maker I want to log out
-In order to let people know what I am doing as a maker I want to post a message to chitter
-In order to see what people have to say as a maker I want to see all peeps in chronological order
-Notes:
 
-Makers sign up to chitter with their email, password, name and a user name (i.e. ecomba@makersacademy.com, s3cr3t, Enrique Comba Riepenhausen, ecomba)
-The username and email are unique
-Peeps (posts to chitter) have the name of the maker and their user handle
-Use bcrypt to secure the passwords
-Use data mapper and postgres to save the data
-You don't have to be logged in to see the peeps
-You only can peep if you are logged in.
-Bonus:
+###Specification
 
-     If you have time you can implement the following:
-In order to start a conversation as a maker I want to reply to a peep from another maker.
-      Or / and:
-Work on the css to make it look good (we all like beautiful things).
++ Users sign up to chitter with their email, password, name and a user name 
++ The username and email are unique
++ Peeps (posts to chitter) have the name of the maker and their user handle
++ Use data mapper and postgres to save the data
++ You don't have to be logged in to see the peeps
++ Users can reply to peeps
 
-Good luck and let the chitter begin!
+###Technologies used
+
++ Ruby
++ RSPEC
++ Sinatra
++ BCrypt
++ Datamapper
++ PSQL
++ Capybara
++ Heroku
+
+###How to set it up
+
+```sh
+git clone https://github.com/aitkenster/chitter.git
+cd chitter
+bundle install
+```
+
+###How to run it
+
+```sh
+cd chitter
+rackup
+```
+
+go to localhost:9292 in your browser to view the app
+
+###How to test it
+
+```sh
+cd chitter
+rspec
+``` 
+
+###Future Improvements
+
++ The CSS has been described as teenage mutant ninja turtle themed! Definitely needs work.
++ Currently the database only stores one reply to a peep. I would implement the ability to store multiple replies.
++ Ability to reset password

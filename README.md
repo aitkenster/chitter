@@ -4,7 +4,7 @@ chitter
 Week 6 Friday Challenge at Makers Academy - Build a twitter clone (chitter)
 
 Screenshot:
-![](pubic/screenshot.png)
+![](public/screenshot.png)
 
 View the live app here: http://still-inlet-7393.herokuapp.com/
 
